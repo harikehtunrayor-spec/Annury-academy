@@ -32,34 +32,44 @@
       <p>
 A powerful collection of meaningful words and expressions that inspire deep thinking, 
 personal growth, and a better understanding of life.</p>
+<button class="btn preview-btn">Preview</button>
   <a href="https://wa.me/2349038989810?text=Hello%20I%20want%20to%20get%20the%20book%20كنوز%20الكلمات" 
 class="btn" target="_blank">
   📩 Get This Book
 </a>
     </div>
       <div class="card">
-      <img src="images/book2.jpeg" alt="">
+      <img src="images/book3.jpeg" alt="">
       <h3>المولّه </h3>
       <p>
 A deep and emotional work that explores passion and human feelings through rich and 
 beautiful expressions.</p>
+<button class="btn preview-btn">Preview</button>
   <a href="https://wa.me/2349038989810?text=Hello%20I%20want%20to%20get%20the%20book%20المولّه" 
 class="btn" target="_blank">
   📩 Get This Book
 </a>
     </div>
     <div class="card">
-      <img src="images/book3.jpeg" alt="">
+      <img src="images/book2.jpeg" alt="">
       <h3>قبسات الهداية  </h3>
-      <p>
-A deep and emotional work that explores passion and human feelings through rich and 
-beautiful expressions.</p>
+      <p>A powerful collection of insights and guidance that inspires reflection, personal growth, and a deeper understanding of life and faith.</p>
+<button class="btn preview-btn">Preview</button>
   <a href="https://wa.me/2349038989810text=Hello%20I%20want%20to%20get%20the%20book%20books/قبسات الهداية-" 
 class="btn" target="_blank">
   📩 Get This Book
 </a>
     </div>
-  </div>
+     <div class="card">
+      <img src="images/book4.jpeg" alt="">
+      <h3>منارة النجاح</h3>
+      <p>A motivational book about personal growth and achieving goals. It teaches that success comes from discipline, hard work, and self-belief.</p>
+<button class="btn preview-btn">Preview</button>
+  <a href="https://wa.me/2349038989810?text=Hello%20I%20want%20to%20get%20the%20book%20منارة%20النجاح" 
+class="btn" target="_blank">
+  📩 Get This Book
+</a>
+    </div>
   </section>
 
       <section id="about" class="fade-in">
@@ -141,6 +151,14 @@ Scientific and Literary Contributions: In addition to his academic excellence, h
 </p>
   </div>
 </div>
+<div id="preview-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-preview">&times;</span>
+
+    <iframe id="preview-frame" src="" width="100%" height="500px"></iframe>
+
+  </div>
+</div>
 <script>
 const btn = document.getElementById("author-btn");
 const modal = document.getElementById("author-modal");
@@ -174,6 +192,43 @@ window.onclick = (e) => {
   elements.forEach(el => observer.observe(el));
   const cards = document.querySelectorAll('.card');
 cards.forEach(card => observer.observe(card));
+</script>
+<script>
+const previewBtns = document.querySelectorAll(".preview-btn");
+const previewModal = document.getElementById("preview-modal");
+const previewFrame = document.getElementById("preview-frame");
+const closePreview = document.querySelector(".close-preview");
+
+previewBtns.forEach((btn, index) => {
+  btn.onclick = () => {
+    previewModal.style.display = "flex";
+
+    if(index === 0){
+      previewFrame.src = "books/book1-preview.pdf";
+    }
+    if(index === 1){
+      previewFrame.src = "books/book2-preview.pdf";
+    }
+    if(index === 2){
+      previewFrame.src = "books/book3-preview.pdf";
+    }
+    if(index === 3){
+  previewFrame.src = "books/book4-preview.pdf";
+}
+  }
+});
+
+closePreview.onclick = () => {
+  previewModal.style.display = "none";
+  previewFrame.src = "";
+}
+
+window.onclick = (e) => {
+  if(e.target === previewModal){
+    previewModal.style.display = "none";
+    previewFrame.src = "";
+  }
+}
 </script>
 </body>
 </html>

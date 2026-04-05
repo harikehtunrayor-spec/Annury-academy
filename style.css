@@ -346,3 +346,7 @@ html {
   opacity: 1;
   transform: translateY(0);
 }
+#preview-frame {
+  border: none;
+  border-radius: 10px;
+}
