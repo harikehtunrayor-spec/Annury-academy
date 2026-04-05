@@ -350,3 +350,12 @@ html {
   border: none;
   border-radius: 10px;
 }
+.modal-content {
+  width: 90%;
+  max-width: 800px;
+}
+
+#preview-frame {
+  width: 100%;
+  height: 80vh;
+}
