@@ -200,46 +200,38 @@ const previewFrame = document.getElementById("preview-frame");
 const closePreview = document.querySelector(".close-preview");
 
 previewBtns.forEach((btn, index) => {
-  btn.onclick = () => {
+  btn.addEventListener("click", () => {
 
     let file = "";
+    if(index === 0) file = "books/book1-preview.pdf";
+    if(index === 1) file = "books/book2-preview.pdf";
+    if(index === 2) file = "books/book3-preview.pdf";
+    if(index === 3) file = "books/book4-preview.pdf";
 
-    if(index === 0){
-      file = "books/book1-preview.pdf";
-    }
-    if(index === 1){
-      file = "books/book2-preview.pdf";
-    }
-    if(index === 2){
-      file = "books/book3-preview.pdf";
-    }
-    if(index === 3){
-      file = "books/book4-preview.pdf";
-    }
-
-    // 📱 If phone → open in new tab
+    // 📱 Mobile: open in new tab
     if(window.innerWidth < 768){
       window.open(file, "_blank");
     } 
-    // 💻 If desktop → show modal
+    // 💻 Desktop: open modal
     else {
-      previewModal.style.display = "flex";
       previewFrame.src = file;
+      previewModal.style.display = "flex";
     }
-  }
+  });
 });
 
-closePreview.onclick = () => {
+closePreview.addEventListener("click", () => {
   previewModal.style.display = "none";
   previewFrame.src = "";
-}
+});
 
-window.onclick = (e) => {
+// Click outside modal closes it
+window.addEventListener("click", (e) => {
   if(e.target === previewModal){
     previewModal.style.display = "none";
     previewFrame.src = "";
   }
-}
+});
 </script>
 </body>
 </html>
